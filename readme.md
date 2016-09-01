@@ -1,4 +1,4 @@
-React Weather Application
+REACT WEATHER APPLICATION
 
 Instructions
 -------------

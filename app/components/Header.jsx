@@ -16,7 +16,7 @@ var Header = React.createClass({
     return (
       <div>
 
-        <MediaQuery minWidth={700}> {/*//Appling Media Queries for Responsive Web Design*/}
+        <MediaQuery minWidth={700}> {/*Appling Media Queries for Responsive Web Design*/}
           <div style={headerStyle}>
             <h2>WEATHER APPLICATION USING REACT JS</h2>
             <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>

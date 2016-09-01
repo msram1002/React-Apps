@@ -18,7 +18,7 @@ var Main = React.createClass({
     return (
       <div>
 
-        <MediaQuery minWidth={700}> {/*//Appling Media Queries for Responsive Web Design*/}
+        <MediaQuery minWidth={700}> {/*Appling Media Queries for Responsive Web Design*/}
           <div style={mainStyle}>
               <Header/>
               {this.props.children}

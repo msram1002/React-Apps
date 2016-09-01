@@ -17,14 +17,14 @@ var WeatherReport = React.createClass ({
     return (
       <div>
 
-        <MediaQuery minWidth={700}>
+        <MediaQuery minWidth={700}> {/*Appling Media Queries for Responsive Web Design*/}
           <div style={reportStyle}>
             <h3><b><u>Various Weather Parameters for the {location} city</u></b></h3>
             <h4><i>(arranged alphabetically (KEYS and their respective values))</i></h4>
             <h4>{data}</h4>
           </div>
         </MediaQuery>
-        
+
         <MediaQuery maxWidth={700}>
           <div style={reportStyle2}>
             <h3><b><u>Various Weather Parameters for the {location} city</u></b></h3>
@@ -32,6 +32,7 @@ var WeatherReport = React.createClass ({
             <h4>{data}</h4>
           </div>
         </MediaQuery>
+        
     </div>
     );
   }

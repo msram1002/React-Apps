@@ -49,7 +49,7 @@ var Weather = React.createClass ({
      return (
        <div>
 
-       <MediaQuery minWidth={700}>
+       <MediaQuery minWidth={700}> {/*Appling Media Queries for Responsive Web Design*/}
          <div style={searchFormStyle}>
            <h4><i>Enter the CITY Name</i></h4>
            <WeatherSearchForm onSearch={this.handleSearch}/>
