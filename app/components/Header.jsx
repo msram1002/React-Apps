@@ -7,18 +7,16 @@ var Header = React.createClass({
   render: function() {
     var headerStyle = {
         textAlign:"center",
-        marginTop:"20",
         backgroundColor:"#FF0"
       };
       var headerStyle2 = {
           textAlign:"center",
-          marginTop:"20",
           backgroundColor:"#9F9"
         };
     return (
       <div>
 
-        <MediaQuery minDeviceWidth={700}> {/*//Appling Media Queries for Responsive Web Design*/}
+        <MediaQuery minWidth={700}> {/*//Appling Media Queries for Responsive Web Design*/}
           <div style={headerStyle}>
             <h2>WEATHER APPLICATION USING REACT JS</h2>
             <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
@@ -28,9 +26,9 @@ var Header = React.createClass({
           </div>
         </MediaQuery>
 
-        <MediaQuery maxDeviceWidth={700}>
+        <MediaQuery maxWidth={700}>
           <div style={headerStyle2}>
-            <h2><u>Weather Application</u></h2>
+            <h2>WEATHER APPLICATION USING REACT JS</h2>
             <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
             <br></br>
             <br></br>

@@ -3,6 +3,8 @@ var WeatherSearchForm = require('WeatherSearchForm');
 var WeatherReport = require('WeatherReport');
 var openWeather = require('openWeather');
 
+var MediaQuery = require('react-responsive');
+
 var Weather = React.createClass ({
     getInitialState: function () {
       return {
@@ -35,15 +37,34 @@ var Weather = React.createClass ({
      }
 
      var searchFormStyle = {
-         marginLeft:"150",
+         marginLeft:"100",
          marginTop:"100"
        };
 
+    var searchFormStyle2 = {
+           marginLeft:"25",
+           marginTop:"100"
+         };
+
      return (
-      <div style={searchFormStyle}>
-        <h4><i>Enter the CITY Name</i></h4>
-        <WeatherSearchForm onSearch={this.handleSearch}/>
-        {renderMessage()}
+       <div>
+
+       <MediaQuery minWidth={700}>
+         <div style={searchFormStyle}>
+           <h4><i>Enter the CITY Name</i></h4>
+           <WeatherSearchForm onSearch={this.handleSearch}/>
+           {renderMessage()}
+         </div>
+       </MediaQuery>
+
+       <MediaQuery maxWidth={700}>
+         <div style={searchFormStyle2}>
+           <h4><i>Enter the CITY Name</i></h4>
+           <WeatherSearchForm onSearch={this.handleSearch}/>
+           {renderMessage()}
+         </div>
+       </MediaQuery>
+
       </div>
     );
   }

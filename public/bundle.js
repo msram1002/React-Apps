@@ -25487,14 +25487,17 @@
 	      backgroundColor: "#9F9"
 	    };
 	    var mainStyle2 = {
-	      backgroundColor: "#378"
+	      backgroundColor: "#378",
+	      display: "flex",
+	      flexDirection: "column",
+	      flexWrap: "wrap"
 	    };
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(
 	        MediaQuery,
-	        { minDeviceWidth: 700 },
+	        { minWidth: 700 },
 	        ' ',
 	        React.createElement(
 	          'div',
@@ -25505,7 +25508,7 @@
 	      ),
 	      React.createElement(
 	        MediaQuery,
-	        { maxDeviceWidth: 700 },
+	        { maxWidth: 700 },
 	        React.createElement(
 	          'div',
 	          { style: mainStyle2 },
@@ -25541,12 +25544,10 @@
 	  render: function render() {
 	    var headerStyle = {
 	      textAlign: "center",
-	      marginTop: "20",
 	      backgroundColor: "#FF0"
 	    };
 	    var headerStyle2 = {
 	      textAlign: "center",
-	      marginTop: "20",
 	      backgroundColor: "#9F9"
 	    };
 	    return React.createElement(
@@ -25554,7 +25555,7 @@
 	      null,
 	      React.createElement(
 	        MediaQuery,
-	        { minDeviceWidth: 700 },
+	        { minWidth: 700 },
 	        ' ',
 	        React.createElement(
 	          'div',
@@ -25580,18 +25581,14 @@
 	      ),
 	      React.createElement(
 	        MediaQuery,
-	        { maxDeviceWidth: 700 },
+	        { maxWidth: 700 },
 	        React.createElement(
 	          'div',
 	          { style: headerStyle2 },
 	          React.createElement(
 	            'h2',
 	            null,
-	            React.createElement(
-	              'u',
-	              null,
-	              'Weather Application'
-	            )
+	            'WEATHER APPLICATION USING REACT JS'
 	          ),
 	          React.createElement(
 	            IndexLink,
@@ -26221,6 +26218,8 @@
 	var WeatherReport = __webpack_require__(239);
 	var openWeather = __webpack_require__(240);
 
+	var MediaQuery = __webpack_require__(230);
+
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
@@ -26263,24 +26262,56 @@
 	    }
 
 	    var searchFormStyle = {
-	      marginLeft: "150",
+	      marginLeft: "100",
+	      marginTop: "100"
+	    };
+
+	    var searchFormStyle2 = {
+	      marginLeft: "25",
 	      marginTop: "100"
 	    };
 
 	    return React.createElement(
 	      'div',
-	      { style: searchFormStyle },
+	      null,
 	      React.createElement(
-	        'h4',
-	        null,
+	        MediaQuery,
+	        { minWidth: 700 },
 	        React.createElement(
-	          'i',
-	          null,
-	          'Enter the CITY Name'
+	          'div',
+	          { style: searchFormStyle },
+	          React.createElement(
+	            'h4',
+	            null,
+	            React.createElement(
+	              'i',
+	              null,
+	              'Enter the CITY Name'
+	            )
+	          ),
+	          React.createElement(WeatherSearchForm, { onSearch: this.handleSearch }),
+	          renderMessage()
 	        )
 	      ),
-	      React.createElement(WeatherSearchForm, { onSearch: this.handleSearch }),
-	      renderMessage()
+	      React.createElement(
+	        MediaQuery,
+	        { maxWidth: 700 },
+	        React.createElement(
+	          'div',
+	          { style: searchFormStyle2 },
+	          React.createElement(
+	            'h4',
+	            null,
+	            React.createElement(
+	              'i',
+	              null,
+	              'Enter the CITY Name'
+	            )
+	          ),
+	          React.createElement(WeatherSearchForm, { onSearch: this.handleSearch }),
+	          renderMessage()
+	        )
+	      )
 	    );
 	  }
 	});
@@ -26332,12 +26363,14 @@
 /* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(7);
 
+	var MediaQuery = __webpack_require__(230);
+
 	var WeatherReport = React.createClass({
-	  displayName: "WeatherReport",
+	  displayName: 'WeatherReport',
 
 	  render: function render() {
 	    var _props = this.props;
@@ -26347,39 +26380,88 @@
 	    var reportStyle = {
 	      marginLeft: "300",
 	      marginTop: "-125",
-	      fontWeight: 'bold'
+	      fontWeight: "bold"
+	    };
+	    var reportStyle2 = {
+	      marginLeft: "auto",
+	      fontWeight: "bold"
 	    };
 	    return React.createElement(
-	      "div",
-	      { style: reportStyle },
+	      'div',
+	      null,
 	      React.createElement(
-	        "h3",
-	        null,
+	        MediaQuery,
+	        { minWidth: 700 },
 	        React.createElement(
-	          "b",
-	          null,
+	          'div',
+	          { style: reportStyle },
 	          React.createElement(
-	            "u",
+	            'h3',
 	            null,
-	            "Various Weather Parameters for the ",
-	            location,
-	            " city"
+	            React.createElement(
+	              'b',
+	              null,
+	              React.createElement(
+	                'u',
+	                null,
+	                'Various Weather Parameters for the ',
+	                location,
+	                ' city'
+	              )
+	            )
+	          ),
+	          React.createElement(
+	            'h4',
+	            null,
+	            React.createElement(
+	              'i',
+	              null,
+	              '(arranged alphabetically (KEYS and their respective values))'
+	            )
+	          ),
+	          React.createElement(
+	            'h4',
+	            null,
+	            data
 	          )
 	        )
 	      ),
 	      React.createElement(
-	        "h4",
-	        null,
+	        MediaQuery,
+	        { maxWidth: 700 },
 	        React.createElement(
-	          "i",
-	          null,
-	          "(arranged alphabetically (KEYS and their respective values))"
+	          'div',
+	          { style: reportStyle2 },
+	          React.createElement(
+	            'h3',
+	            null,
+	            React.createElement(
+	              'b',
+	              null,
+	              React.createElement(
+	                'u',
+	                null,
+	                'Various Weather Parameters for the ',
+	                location,
+	                ' city'
+	              )
+	            )
+	          ),
+	          React.createElement(
+	            'h4',
+	            null,
+	            React.createElement(
+	              'i',
+	              null,
+	              '(arranged alphabetically (KEYS and their respective values))'
+	            )
+	          ),
+	          React.createElement(
+	            'h4',
+	            null,
+	            data
+	          )
 	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        data
 	      )
 	    );
 	  }

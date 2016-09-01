@@ -10,19 +10,22 @@ var Main = React.createClass({
         backgroundColor: "#9F9"
       };
       var mainStyle2 = {
-          backgroundColor: "#378"
+          backgroundColor: "#378",
+          display: "flex",
+          flexDirection: "column",
+          flexWrap: "wrap"
         };
     return (
       <div>
 
-        <MediaQuery minDeviceWidth={700}> {/*//Appling Media Queries for Responsive Web Design*/}
+        <MediaQuery minWidth={700}> {/*//Appling Media Queries for Responsive Web Design*/}
           <div style={mainStyle}>
               <Header/>
               {this.props.children}
           </div>
         </MediaQuery>
 
-        <MediaQuery maxDeviceWidth={700}>
+        <MediaQuery maxWidth={700}>
           <div style={mainStyle2}>
               <Header/>
               {this.props.children}
