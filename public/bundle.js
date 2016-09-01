@@ -26277,6 +26277,7 @@
 	      React.createElement(
 	        MediaQuery,
 	        { minWidth: 700 },
+	        ' ',
 	        React.createElement(
 	          'div',
 	          { style: searchFormStyle },
@@ -26392,6 +26393,7 @@
 	      React.createElement(
 	        MediaQuery,
 	        { minWidth: 700 },
+	        ' ',
 	        React.createElement(
 	          'div',
 	          { style: reportStyle },
@@ -26483,63 +26485,63 @@
 	var OPEN_WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?appid=38dc945fbe2beb0faa91374031e85ebf&units=imperial';
 
 	module.exports = {
-	  getResults: function getResults(location) {
-	    // To avoid unexpected requests to the server
-	    var locationEncoded = encodeURIComponent(location);
+	    getResults: function getResults(location) {
+	        // To avoid unexpected requests to the server
+	        var locationEncoded = encodeURIComponent(location);
 
-	    var requestUrl = OPEN_WEATHER_URL + '&q=' + locationEncoded;
-	    // Make the request which is a promise here
-	    return axios.get(requestUrl).then(function (res) {
-	      if (res.data.cod && res.data.message) {
-	        throw new Error(res.data.message);
-	      } else {
-	        var alphabeticData;
-	        var d;
-
-	        var _ret = function () {
-	          var isArray = function isArray(a) {
-	            return Object.prototype.toString.call(a) === "[object Array]";
-	          };
-
-	          var isPlainObject = function isPlainObject(a) {
-	            return Object.prototype.toString.call(a) === "[object Object]";
-	          };
-
-	          var sortJSON = function sortJSON(a) {
-	            var b = {};
-	            if (isArray(a)) {
-	              b = a.sort();
-	              b.forEach(function (c, d) {
-	                b[d] = sortJSON(c);
-	              });
+	        var requestUrl = OPEN_WEATHER_URL + '&q=' + locationEncoded;
+	        // Make the request which is a promise here
+	        return axios.get(requestUrl).then(function (res) {
+	            if (res.data.cod && res.data.message) {
+	                throw new Error(res.data.message);
 	            } else {
-	              if (isPlainObject(a)) {
-	                b = {};
-	                Object.keys(a).sort().forEach(function (c) {
-	                  b[c] = sortJSON(a[c]);
-	                });
-	              } else {
-	                b = a;
-	              }
+	                var alphabeticData;
+	                var d;
+
+	                var _ret = function () {
+	                    var isArray = function isArray(a) {
+	                        return Object.prototype.toString.call(a) === "[object Array]";
+	                    };
+
+	                    var isPlainObject = function isPlainObject(a) {
+	                        return Object.prototype.toString.call(a) === "[object Object]";
+	                    };
+
+	                    var sortJSON = function sortJSON(a) {
+	                        var b = {};
+	                        if (isArray(a)) {
+	                            b = a.sort();
+	                            b.forEach(function (c, d) {
+	                                b[d] = sortJSON(c);
+	                            });
+	                        } else {
+	                            if (isPlainObject(a)) {
+	                                b = {};
+	                                Object.keys(a).sort().forEach(function (c) {
+	                                    b[c] = sortJSON(a[c]);
+	                                });
+	                            } else {
+	                                b = a;
+	                            }
+	                        }
+	                        return b;
+	                    };
+
+	                    alphabeticData = res.data;
+	                    d = sortJSON(alphabeticData);
+
+	                    alphabeticData = JSON.stringify(d, null, 4);
+	                    return {
+	                        v: alphabeticData
+	                    };
+	                }();
+
+	                if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	            }
-	            return b;
-	          };
-
-	          alphabeticData = res.data;
-	          d = sortJSON(alphabeticData);
-
-	          alphabeticData = JSON.stringify(d, null, 4);
-	          return {
-	            v: alphabeticData
-	          };
-	        }();
-
-	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
-	      }
-	    }, function () {
-	      throw new Error(res.data.message);
-	    });
-	  }
+	        }, function () {
+	            throw new Error(res.data.message);
+	        });
+	    }
 	};
 
 /***/ },
