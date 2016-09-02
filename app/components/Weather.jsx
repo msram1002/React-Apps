@@ -57,6 +57,7 @@ var Weather = React.createClass ({
          </div>
        </MediaQuery>
 
+
        <MediaQuery maxWidth={700}>
          <div style={searchFormStyle2}>
            <h4><i>Enter the CITY Name</i></h4>
@@ -65,7 +66,7 @@ var Weather = React.createClass ({
          </div>
        </MediaQuery>
 
-      </div>
+     </div>
     );
   }
 });

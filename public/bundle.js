@@ -25480,44 +25480,23 @@
 	var MediaQuery = __webpack_require__(230);
 
 	var Main = React.createClass({
-	  displayName: 'Main',
+	    displayName: 'Main',
 
-	  render: function render() {
-	    var mainStyle = {
-	      backgroundColor: "#9F9"
-	    };
-	    var mainStyle2 = {
-	      backgroundColor: "#378",
-	      display: "flex",
-	      flexDirection: "column",
-	      flexWrap: "wrap"
-	    };
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        MediaQuery,
-	        { minWidth: 700 },
-	        ' ',
-	        React.createElement(
-	          'div',
-	          { style: mainStyle },
-	          React.createElement(Header, null),
-	          this.props.children
-	        )
-	      ),
-	      React.createElement(
-	        MediaQuery,
-	        { maxWidth: 700 },
-	        React.createElement(
-	          'div',
-	          { style: mainStyle2 },
-	          React.createElement(Header, null),
-	          this.props.children
-	        )
-	      )
-	    );
-	  }
+	    render: function render() {
+
+	        var mainStyle = {
+	            backgroundColor: "#378",
+	            display: "flex",
+	            flexDirection: "column",
+	            flexWrap: "wrap"
+	        };
+	        return React.createElement(
+	            'div',
+	            { style: mainStyle },
+	            React.createElement(Header, null),
+	            this.props.children
+	        );
+	    }
 	});
 
 	module.exports = Main;{/* For accessing the function */}

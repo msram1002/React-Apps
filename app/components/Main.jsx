@@ -6,33 +6,19 @@ var MediaQuery = require('react-responsive');
 
 var Main = React.createClass({
   render: function () {
-    var mainStyle = {
-        backgroundColor: "#9F9"
-      };
-      var mainStyle2 = {
+
+      var mainStyle = {
           backgroundColor: "#378",
           display: "flex",
           flexDirection: "column",
           flexWrap: "wrap"
         };
     return (
-      <div>
-
-        <MediaQuery minWidth={700}> {/*Appling Media Queries for Responsive Web Design*/}
           <div style={mainStyle}>
               <Header/>
               {this.props.children}
           </div>
-        </MediaQuery>
 
-        <MediaQuery maxWidth={700}>
-          <div style={mainStyle2}>
-              <Header/>
-              {this.props.children}
-          </div>
-        </MediaQuery>
-
-      </div>
     );
   }
 });
